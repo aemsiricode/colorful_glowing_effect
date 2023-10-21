@@ -1,0 +1,82 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#000000;
+}
+
+.button .button_outer{
+  position:relative;
+  background:linear-gradient(#a59835, #d7c730, #ff0000);
+}
+
+.button .button_outer.circle{
+  height:200px;
+  width:200px;
+  border-radius:50%;
+}
+
+.button .button_outer > button,
+.button .button_outer .button_blur{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+}
+
+.button .button_outer > button{
+  background:#111111;
+  color:#f2f2f2;
+  outline:none;
+  border:none;
+  font-size:20px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  cursor:pointer;
+  z-index:2;
+}
+
+.button .button_outer.circle > button{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+}
+
+.button .button_outer > .button_blur{
+  width:100%;
+  height:100%;
+  background:inherit;
+}
+
+.button .button_outer.circle > .button_blur{
+  border-radius:50%;
+  transition:all .3s;
+}
+
+.button .button_outer:hover > .button_blur:nth-child(1){
+  filter:blur(7px);
+}
+
+.button .button_outer:hover > .button_blur:nth-child(2){
+  filter:blur(14px);
+}
+
+.button_outer:hover{
+  animation:rotate 1.5s linear infinite;
+}
+
+@keyframes rotate{
+  0%{
+    filter:hue-rotate(0deg);
+  }
+  100%{
+    filter:hue-rotate(360deg);
+  }
+}
